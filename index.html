@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="악기 음색과 파동 셀을 비교하고 조합하는 오프라인 음악 실험실">
+  <title>파동 셀 음악 실험실 · 로컬 버전</title>
+  <link rel="icon" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="파동 셀 음악 실험실 홈">
+        <span class="brand-mark" aria-hidden="true">∿</span>
+        <span>활동2 파동 셀</span>
+      </a>
+      <a class="header-link" href="#challenge">파동 셀 활동 ↓</a>
+    </header>
+
+    <section class="intro" id="top">
+      <div>
+        <p class="eyebrow">INSTRUMENT WAVE LAB · 로컬 버전</p>
+        <h1>같은 솔인데,<br>왜 다르게 들릴까?</h1>
+      </div>
+      <p class="intro-copy">아래 두 소리는 모두 <strong>392 Hz</strong>예요. 비교할 악기 두 개를 골라 배음과 소리의 시작·끝이 어떻게 다른지 들어보세요.</p>
+    </section>
+
+    <section class="compare-section" aria-labelledby="compare-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">먼저 들어보기</p>
+          <h2 id="compare-title">같은 음높이, 다른 음색</h2>
+        </div>
+        <span class="frequency-pill">G4 · 392 Hz</span>
+      </div>
+      <div class="instrument-pair-picker" id="instrument-picker" aria-label="비교할 악기 두 개 선택"></div>
+      <div class="instrument-grid" id="instrument-grid"></div>
+    </section>
+
+    <section class="challenge" id="challenge" aria-labelledby="challenge-title">
+      <div class="challenge-intro">
+        <div>
+          <p class="step">파동 셀 미션</p>
+          <h2 id="challenge-title">세 가지 문제를 맞춰 보세요.</h2>
+        </div>
+        <p>문제를 골라 예시 소리를 듣고, 파형을 분석해 같은 순서로 파동 셀을 배열하세요.</p>
+      </div>
+
+      <div class="target-player">
+        <div class="target-copy">
+          <span class="target-index" id="problem-index">1</span>
+          <div>
+            <p>선생님의 예시 소리</p>
+            <strong id="problem-label">문제 1</strong>
+          </div>
+        </div>
+        <div class="target-controls">
+          <div class="problem-tabs" id="problem-tabs" aria-label="문제 선택"></div>
+          <button class="primary-play" id="play-target" type="button"><span aria-hidden="true">▶</span> 예시 소리 듣기</button>
+        </div>
+      </div>
+
+      <div class="builder-grid">
+        <section class="palette-panel" aria-labelledby="palette-title">
+          <div class="panel-heading">
+            <div><span class="panel-number">1</span><h3 id="palette-title">파동 셀 고르기</h3></div>
+            
+          </div>
+          <div class="cell-options">
+            <fieldset>
+              <legend>문제의 악기</legend>
+              <div class="choice-row" id="cell-instruments"></div>
+            </fieldset>
+          </div>
+          <div class="wave-matrix-scroll">
+            <div class="wave-matrix" id="wave-matrix" role="group" aria-label="진동수와 진폭에 따른 파동 셀 선택표"></div>
+          </div>
+        </section>
+
+        <section class="sequence-panel" aria-labelledby="sequence-title">
+          <div class="panel-heading">
+            <div><span class="panel-number coral">2</span><h3 id="sequence-title">내가 만든 소리</h3></div>
+            <button class="text-button" id="clear-cells" type="button">모두 비우기</button>
+          </div>
+          <div class="sequence-slots" id="sequence-slots"></div>
+          <div class="sequence-actions">
+            <button class="secondary-play" id="play-mine" type="button"><span aria-hidden="true">▶</span> 내 소리 듣기</button>
+            <button class="check-button" id="check-answer" type="button">정답과 비교하기</button>
+          </div>
+          <p class="audio-message" id="audio-message" role="status" aria-live="polite"></p>
+          <div id="result"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+    <script src="js/app.js" defer></script>
+</body>
+</html>
