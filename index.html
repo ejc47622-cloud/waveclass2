@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="악기 음색과 파동 그림을 비교하고 조합하는 오프라인 음악 실험실">
-  <title>파동 그림 음악 실험실 · 로컬 버전</title>
+  <meta name="description" content="악기 음색과 파동 셀을 비교하고 조합하는 오프라인 음악 실험실">
+  <title>파동 셀 음악 실험실 · 로컬 버전</title>
   <link rel="icon" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="css/style.css">
   <style>
@@ -14,11 +14,11 @@
 <body>
   <main>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="파동 그림 음악 실험실 홈">
+      <a class="brand" href="#top" aria-label="파동 셀 음악 실험실 홈">
         <span class="brand-mark" aria-hidden="true">∿</span>
-        <span>활동2 파동 그림</span>
+        <span>활동2 파동 셀</span>
       </a>
-      <a class="header-link" href="#challenge">파동 그림 활동 ↓</a>
+      <a class="header-link" href="#challenge">파동 셀 활동 ↓</a>
     </header>
 
     <section class="intro" id="top">
@@ -44,10 +44,10 @@
     <section class="challenge" id="challenge" aria-labelledby="challenge-title">
       <div class="challenge-intro">
         <div>
-          <p class="step">파동 그림 미션</p>
+          <p class="step">파동 셀 미션</p>
           <h2 id="challenge-title">세 가지 문제를 맞춰 보세요.</h2>
         </div>
-        <p>문제를 골라 예시 소리를 듣고, 파형을 분석해 같은 순서로 파동 그림을 배열하세요.</p>
+        <p>문제를 골라 예시 소리를 듣고, 파형을 분석해 같은 순서로 파동 셀을 배열하세요.</p>
       </div>
 
       <div class="target-player">
@@ -67,7 +67,7 @@
       <div class="builder-grid">
         <section class="palette-panel" aria-labelledby="palette-title">
           <div class="panel-heading">
-            <div><span class="panel-number">1</span><h3 id="palette-title">파동 그림 고르기</h3></div>
+            <div><span class="panel-number">1</span><h3 id="palette-title">파동 셀 고르기</h3></div>
             
           </div>
           <div class="cell-options">
@@ -77,7 +77,7 @@
             </fieldset>
           </div>
           <div class="wave-matrix-scroll">
-            <div class="wave-matrix" id="wave-matrix" role="group" aria-label="진동수와 진폭에 따른 파동 그림 선택표"></div>
+            <div class="wave-matrix" id="wave-matrix" role="group" aria-label="진동수와 진폭에 따른 파동 셀 선택표"></div>
           </div>
         </section>
 
@@ -99,25 +99,5 @@
   </main>
 
   <script src="js/app.js" defer></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const replaceText = value => typeof value === "string" ? value.replaceAll("파동 셀", "파동 그림") : value;
-      const applyReplacements = (root = document.body) => {
-        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-        const textNodes = [];
-        while (walker.nextNode()) textNodes.push(walker.currentNode);
-        textNodes.forEach(node => {
-          if (node.nodeValue && node.nodeValue.includes("파동 셀")) node.nodeValue = replaceText(node.nodeValue);
-        });
-        root.querySelectorAll?.("[aria-label],[alt],[title]").forEach(el => {
-          if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", replaceText(el.getAttribute("aria-label")));
-          if (el.hasAttribute("alt")) el.setAttribute("alt", replaceText(el.getAttribute("alt")));
-          if (el.hasAttribute("title")) el.setAttribute("title", replaceText(el.getAttribute("title")));
-        });
-      };
-      applyReplacements();
-      new MutationObserver(() => applyReplacements()).observe(document.body, { childList: true, subtree: true, characterData: true });
-    });
-  </script>
 </body>
 </html>
