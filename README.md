@@ -1,4 +1,4 @@
-# 활동2 파동 그림 — GitHub / Netlify 배포용
+# 활동2 파동 셀 — GitHub / Netlify 배포용
 
 이 폴더는 기존 단일 HTML을 정적 웹사이트 구조로 분리한 버전입니다.
 
@@ -6,7 +6,7 @@
 
 - `index.html` — 화면 마크업
 - `css/style.css` — 전체 스타일
-- `js/app.js` — 파동 그림, 문제, Web Audio 재생 로직
+- `js/app.js` — 파동 셀, 문제, Web Audio 재생 로직
 - `assets/images/favicon.svg` — 파비콘
 - `assets/images/waveforms/` — 피아노·아코디언 파형 PNG 32개
 - `netlify.toml` — Netlify 정적 배포 설정
