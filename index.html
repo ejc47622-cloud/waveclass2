@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="css/style.css">
   <style>
     .frequency-axis { display: none !important; }
+    #wave-matrix .wave-cell-button {
+      position: relative;
+    }
+    #wave-matrix .wave-cell-button::before {
+      content: attr(data-cell-label);
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      z-index: 2;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      color: #111;
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 5px;
+      padding: 3px 6px;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -99,5 +117,23 @@
   </main>
 
   <script src="js/app.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const labels = ["a", "b", "c", "d", "f", "g"];
+      const waveMatrix = document.getElementById("wave-matrix");
+
+      const applyWaveCellLabels = () => {
+        waveMatrix.querySelectorAll(".wave-cell-button").forEach((button, index) => {
+          button.dataset.cellLabel = labels[index] || "";
+        });
+      };
+
+      applyWaveCellLabels();
+      new MutationObserver(applyWaveCellLabels).observe(waveMatrix, {
+        childList: true,
+        subtree: true
+      });
+    });
+  </script>
 </body>
 </html>
